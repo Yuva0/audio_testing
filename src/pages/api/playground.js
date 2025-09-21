@@ -44,6 +44,17 @@ export default async function handler(req, res) {
     } catch (err) {
       return res.status(500).json({ success: false, message: 'Server error' });
     }
+  } else if (req.method === 'DELETE') {
+    const { id } = req.body;
+    if (!id) {
+      return res.status(400).json({ success: false, message: 'ID is required for DELETE' });
+    }
+    try {
+      await Playground.findByIdAndDelete(id);
+      return res.json({ success: true, message: 'Entry deleted' });
+    } catch (err) {
+      return res.status(500).json({ success: false, message: 'Server error' });
+    }
   } else {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }

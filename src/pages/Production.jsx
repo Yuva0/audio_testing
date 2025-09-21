@@ -192,16 +192,17 @@ const Production = () => {
         flexDirection: 'column', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        minHeight: '80vh', 
+        minHeight: '100vh', 
         borderRadius: 16,
         boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-        padding: '2rem'
+        padding: '2rem',
+        background: '#fff'
       }}>
         <h1 style={{ 
           fontSize: '2.5rem', 
           fontWeight: 700, 
           marginBottom: '2rem', 
-          color: '#ffffff', 
+          color: '#232326', 
           letterSpacing: 1 
         }}>
           Production
@@ -277,52 +278,62 @@ const Production = () => {
         justifyContent: 'center',
         width: '100vw',
         height: '100vh',
-        background: '#111827',
-        padding: 24,
+        background: '#fff',
+        padding: 0,
+        margin: 0,
         boxSizing: 'border-box',
       }}>
-        {item.type.startsWith('image/') && item.data && (
-          <img
-            src={item.data}
-            alt=""
-            style={{
-              maxWidth: '100vw',
-              maxHeight: '100vh',
-              width: '100vw',
-              height: '100vh',
-              objectFit: 'contain',
-              borderRadius: 12,
-              display: 'block',
-              margin: 'auto',
-              background: '#222',
-            }}
-          />
-        )}
-        {item.type.startsWith('video/') && (item.videoUrl || item.data) && (
-          <video
-            src={item.videoUrl || item.data}
-            controls
-            autoPlay
-            style={{
-              maxWidth: '100vw',
-              maxHeight: '100vh',
-              width: '100vw',
-              height: '100vh',
-              objectFit: 'contain',
-              borderRadius: 12,
-              display: 'block',
-              margin: 'auto',
-              background: '#222',
-            }}
-          />
-        )}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100vw',
+          height: '100vh',
+          background: '#fff',
+        }}>
+          {item.type.startsWith('image/') && item.data && (
+            <img
+              src={item.data}
+              alt=""
+              style={{
+                maxWidth: '100vw',
+                maxHeight: '100vh',
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'contain',
+                borderRadius: 12,
+                display: 'block',
+                margin: 'auto',
+                background: 'none',
+              }}
+            />
+          )}
+          {item.type.startsWith('video/') && (item.videoUrl || item.data) && (
+            <video
+              src={item.videoUrl || item.data}
+              controls
+              autoPlay
+              style={{
+                maxWidth: '100vw',
+                maxHeight: '100vh',
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'contain',
+                borderRadius: 12,
+                display: 'block',
+                margin: 'auto',
+                background: 'none',
+              }}
+            />
+          )}
+        </div>
       </div>
     );
   }
 
   if (uploading) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '80vh', color: '#fff', fontSize: 24 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', color: '#232326', fontSize: 24, background: '#fff' }}>
         <div className="loader" style={{ marginBottom: 24 }} />
         Uploading data, please wait...
       </div>
@@ -331,7 +342,7 @@ const Production = () => {
 
   if (submitted && !showing && uploadDone) {
     return (
-      <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+      <div style={{ textAlign: 'center', marginTop: '3rem', background: '#fff', color: '#232326', minHeight: '100vh' }}>
         <h2>Thank you, {name}! All media have been shown and your data has been uploaded.</h2>
       </div>
     );

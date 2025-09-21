@@ -9,7 +9,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/admin" element={<Admin />} />
-        {/* Add routes for Playground and Production as needed */}
       </Routes>
     </Router>
   );
