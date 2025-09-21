@@ -148,7 +148,7 @@ return (
 				>
 					Login
 				</button>
-				<button
+				{/* <button
 					onClick={handleRegister}
 					disabled={isRegistering}
 					style={{
@@ -165,7 +165,7 @@ return (
 					}}
 				>
 					{isRegistering ? 'Registering...' : 'Register'}
-				</button>
+				</button> */}
 			</form>
 			{message && (
 				<div style={{
