@@ -26,6 +26,9 @@ const Admin = () => {
       const data = await res.json();
       if (data.success) {
         setMessage('Login successful!');
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('isLoggedIn', 'true');
+        }
         router.push('/dashboard');
       } else {
         setMessage(data.message || 'Login failed');
